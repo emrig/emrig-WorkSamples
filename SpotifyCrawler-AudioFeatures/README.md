@@ -13,7 +13,7 @@ For discovery, we instantiate a database with 350 known artists across various g
 catalogue.
 
 ## Files and Scripts
-### artist_crawler.py
+### backend/artist_crawler.py
 This class instantiates a Google Firestorm Database implemented as a FIFO queue with 350 known artists across many genres.
  
 We call the Spotify API to get all related artists of a particular artist in the queue.  
@@ -28,13 +28,13 @@ as the audio features of each track to be stored in our db.
 
 We anticipate 1,000,000+ song audio features to be initially stored in our db.
 
-### sp_search.py
+### backend/sp_search.py
 Spotipy library wrapper to fit our needs
 
-### app.json
+### configuration/app.json
 Configuration file
 
-### initArtist.json
+### configuration/initArtist.json
 Initial list of known artists
 
 ### tests folder
