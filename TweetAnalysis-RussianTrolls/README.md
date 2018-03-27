@@ -1,23 +1,26 @@
-# ny_troll_interaction_analysis
-An analysis of New Yorkers' interactions with Russian Trolls
+# Troll Tweet Analysis to Find non-Russian Actors
+Author: Erin Riglin  
+**All Data removed from sample**
+
+An analysis of accounts labeled as Russian Actors working for the IRA by Twitter ([Exhibit B](https://democrats-intelligence.house.gov/uploadedfiles/exhibit_b.pdf)) to find accounts that are legitimate, ordinary citizens who were misidentified and erroneously suspended.
+
+## Analysis Scripts
+
+* **db rebuild** folder has all data and scripts to rebuild the database, but this is not necessary as a complete db backup is provided below. 
+* **neo4J-get_tweets.py** Asynchronously (up to 100 processes) retrieves known trolls, real users, hashtags, and links from our database and, using Twarc, retrieves the last 3200  tweets from each user and parses for known troll mentions, replies, hashtags, and links. Tweets added to database and appropriate relationships built.
+* **neo4j_query.py** Helper class to store entities and relationships into graph database.
+* **neo4j_resolve_user.py** Database provided only contains screen names for users that interacted with trolls. This script resolves those users and populates db entity with full details.
+* **neo4j_query_failure_logger** Logging class
+* **twitter_credentials** Credential class that randomly selects from n (user input) tokens for API calls assigned to each process to minimize limit restrictions.
 
 ## Create Local Graph Database for Development
-Author: Erin Riglin
 
 I wrote scripts to pull the Neo4J sandbox of 450 Russian trolls and ~14000 unresolved users and rebuild the database locally so we can perform tweet analysis either on local machine or AWS. 
 
 ### Graph Database Schema
 New Schema built from that of [Neo4J Sandbox](https://neo4j.com/sandbox-v2/#)
 
-![alt text](https://raw.githubusercontent.com/TowCenter/IT18-SocialNetworks/44170b87cc2faa9eac3ebf80a2adcc6c3a644545/troll_db_schema.png?token=AiD1cxtYHiKP8xoiqTHGvl-sKiboc2_Tks5atSiEwA%3D%3D "Graph Database Schema")
-
-
-### Scripts
-
-* **db rebuild** folder has all data and scripts to rebuild the database, but this is not necessary as a complete db backup is provided below. 
-* **neo4j_resolve_users.py** calls the Twitter API to resolve user information including Location. 
-* **neo4j_pop_nyers.py** labels new yorkers per known NY-NJ locations and creates graph relationships.
-* **neo4j_query** is a helper class that can update entities and add tweets to the graph database to help any script that does Tweet API discover and analysis
+![image](https://github.com/emrig/emrig-WorkSamples/raw/master/TweetAnalysis-RussianTrolls/troll_db_schema.png "Graph Database Schema")
 
 ### Creat Database Instance
 
@@ -25,15 +28,15 @@ New Schema built from that of [Neo4J Sandbox](https://neo4j.com/sandbox-v2/#)
       * <https://neo4j.com/download/>
       
   2. Download troll database backup
-      * <https://drive.google.com/file/d/1SOVrhJUDuqg1oM_DYt-X3bILYLAnqrwL/view?usp=sharing>
+      * --removed--
       * **UPDATE** All users resolved via api and 700 New Yorkers labeled
-        * <https://drive.google.com/file/d/122qc8ZvuRGTMnx1s3aR3gMzj-Xm6DDMC/view?usp=sharing>
+        * --removed--
       * **UPDATE 2** All user interactions and tweets included
-        * <https://drive.google.com/open?id=1sLGZMWu9JR9jxVh7WxAiD2h7tfPs2afK>
+        * --removed--
       
   3. In Neo4J
       * Click New > Project > New Graph > Create a Local Graph
-      * Set the database name and password (Use password 'Columbia123')
+      * Set the database name and password (Use password --removed--)
       * Once database is created, ensure it **remains off**
       
   4. Export the .zip *root* folder **graph.db** to:
@@ -46,4 +49,5 @@ New Schema built from that of [Neo4J Sandbox](https://neo4j.com/sandbox-v2/#)
       * Local server details will be:
           * Server bolt://localhost:xxxx
           * Username: 'neo4j'
-          * Password 'Columbia123'
+          * Password --removed--
+
