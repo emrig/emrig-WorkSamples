@@ -2,6 +2,8 @@
 Author: Erin Riglin  
 **All Data removed from sample**
 
+Analysis done to report [WIRED - How Americans Would Up on Twitter's List of Russian Bots](https://www.wired.com/story/how-americans-wound-up-on-twitters-list-of-russian-bots/)
+
 An analysis of accounts labeled as Russian Actors working for the IRA by Twitter ([Exhibit B](https://democrats-intelligence.house.gov/uploadedfiles/exhibit_b.pdf)) to find accounts that are legitimate, ordinary citizens who were misidentified and erroneously suspended.
 
 ## Analysis Scripts
